@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Βιογραφικό</title>
+    <style>
+        /* Ρυθμίσεις Φόντου Browser */
+        body {
+            font-family: 'Georgia', sans-serif;
+            margin: 0;
+            padding: 0px 0;
+            display: flex;
+            justify-content: center; /* Κεντράρει το Α4 */
+        }
+
+        /* Το "Κουτί" της Α4 */
+        .page-wrapper {
+            width: 210mm; /* Πλάτος Α4 */
+            min-height: 297mm; /* Ύψος Α4 */
+            display: flex; /* Sidebar & Content δίπλα-δίπλα */
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            overflow: hidden;
+            box-sizing: border-box;
+        background-image: url('υπολογιστής-δουλειά.jpg');
+        background-color: rgba(255, 255, 255, 0.9);
+        background-blend-mode: overlay;
+        background-size: cover; 
+        background-repeat: no-repeat;
+        background-position: center; /* Για να κεντραριστεί η φωτό στο Α4 */
+        }
+
+        .sidebar {
+            width: 200px; /* Σταθερό πλάτος για να μην ξεχειλώνει */
+            background-color: rgba(244, 244, 244, 0.6);
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            word-wrap: break-word;
+            flex-shrink: 0; /* Να μην μικραίνει */
+        }
+
+        .sidebar p {
+            font-size: 17px;
+        }
+
+        .content {
+            flex: 1; /* Παίρνει το υπόλοιπο πλάτος του Α4 */
+            padding: 10px 10px 0px 10px;
+            box-sizing: border-box;
+        }
+
+        /* Sections */
+        .section {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 0.5rem;
+            padding: 1rem;
+            color: #272526;
+            paddin-top: 0px;
+        }
+
+        /* Εικόνα */
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 160px;
+            height: 160px;
+            border: 2px solid black;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Γλώσσες */
+        .language-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .language-row p { margin: 0; }
+        .stars { font-size: 18px; }
+
+        /* Λίστα Δεξιοτήτων (Κυρίως Περιεχόμενο) */
+        .skills-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .skills-list li {
+            display: flex;
+            align-items: center; /* Στοίχιση στο κέντρο για τις απλές δεξιότητες */
+            margin-bottom: 8px;
+        }
+
+        /* Λίστα Χαρακτηριστικών (Sidebar) */
+        .skills-list1 {
+            list-style-type: none;
+            padding: 0;
+        }
+        .skills-list1 li {
+            display: flex;
+            align-items: flex-start; /* Στοίχιση στην κορυφή για τις μεγάλες προτάσεις */
+            margin-bottom: 20px;
+            font-size: 17px; /* Εφαρμόζει επιτέλους τα 14px εδώ */
+        }
+
+        .tick {
+        margin-right: 10px; /* Κενό ανάμεσα στο βέλος και τη λέξη */
+        /* Βεβαιώσου ότι ΔΕΝ υπάρχει αρνητικό margin-left εδώ */
+        }
+
+        .custom-bullets ul {
+        list-style-type: square;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column; /* Τα σεμινάρια και πρακτική το ένα κάτω από το άλλο για να χωράνε */
+            gap: 10px;
+        }
+
+        /* Ρυθμίσεις Εκτύπωσης */
+        @media print {
+            body { background: none; padding: 0; }
+            .page-wrapper { box-shadow: none; width: 210mm; height: 297mm; }
+            @page { size: A4 portrait; margin: 0; }
+        }
+
+        /* Για κινητά */
+        @media (max-width: 600px) {
+            .page-wrapper { width: 95%; flex-direction: column; height: auto; }
+            .sidebar { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <br>
+        <img src="bio.photo3.jpg" alt="description">
+        <br>
+        <h3 style="font-size: 19px;">Προσωπικά Στοιχεία</h3>
+        <p><strong>Όνομα:</strong> Άννα</p>
+        <p><strong>Επώνυμο:</strong> Αλεξάκη</p>
+        <p><strong>Ημερομηνία Γέννησης:</strong> <br>15-07-2004</p>
+        <p><strong>Τόπος Διαμονής:</strong> Θεσσαλονίκη</p>
+        <p><strong>Email:</strong> <br>anna.413x4@gmail.com</p>
+        <p><strong>Τηλέφωνο:</strong> <br>6907591159</p>
+        <br>
+        <br>
+        <h3 style="font-size: 19px;">Γλώσσες</h3>
+        <div class="language-row">
+            <p>Ελληνικά</p>
+            <span class="stars">★★★★★</span>
+        </div>
+        <div class="language-row">
+            <p>Αγγλικά</p>
+            <span class="stars">★★★☆☆</span>
+        </div>
+        <br>
+        <br>
+        <h3 style="font-size: 19px;">Χαρακτηριστικά</h3>
+        <ul class="skills-list1">
+            <li><span class="tick"><b>✔</b></span>Δημιουργικότητα και ικανότητα επίλυσης προβλημάτων.</li>
+            <li><span class="tick"><b>✔</b></span>Ομαδικό πνεύμα και ικανότητα συνεργασίας.</li>
+            <li><span class="tick"><b>✔</b></span>Αντοχή στην πίεση και δυνατότητα προσαρμογής σε νέες τεχνολογίες.</li>
+        </ul>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+        <div class="section">
+            <h1 style="margin-top: 0;">ΑΝΝΑ ΑΛΕΞΑΚΗ</h1>
+            <h2>Προφίλ</h2>
+            <p>Ονομάζομαι Άννα Αλεξάκη και είμαι απόφοιτη του τμήματος Τεχνικού Εφαρμογών Πληροφορικής (Πολυμέσα/Web Design-Develop/Video Games) της σχολής ανώτερης επαγγελματικής κατάρτισης ΑΚΜΗ Θεσσαλονίκης. Αναζητώ θέση σε εργασιακό περιβάλλον όπου η εμπειρία μου στον τομέα της εξυπηρέτησης πελατών, καθώς και η υπευθυνότητα, οι οργανωτικές και οι επικοινωνιακές μου δεξιότητες, θα συμβάλλουν στην παροχή ποιοτικής εξυπηρέτησης και στην προσωπική εξέλιξη.</p>
+        </div>
+
+        <div class="section">
+            <h2 style="margin-top: 0;">Πρακτική Άσκηση</h2>
+        <p><strong>Κατάστημα Cosmote (OTE Group)</strong> – Θεσσαλονίκη </p>
+        <p><em> Ιανουάριος 2025 - Ιούνιος 2025 </em></p>
+        <div class="custom-bullets">
+         <ul>
+          <li>Εξυπηρέτηση πελατών και παροχή πληροφοριών για προϊόντα και υπηρεσίες της Cosmote.</li><br>
+          <li>Εξοικείωση με διαδικασίες πωλήσεων, τιμολόγησης και διαχείρισης παραγγελιών.</li><br>
+          <li>Ανάπτυξη επικοινωνιακών δεξιοτήτων και εμπειρία σε πραγματικό επαγγελματικό περιβάλλον.</li>
+        </ul>
+        </div>
+</div>
+        <div class="container">
+            <div class="section">
+                <h2 style="margin-top: 0;">Σεμινάρια</h2>
+                <ul style="font-size: 16px;">
+                    <li>Digital Marketing - Google Adwords</li>
+                    <li>Digital Marketing (Facebook - Instagram Ads)</li>
+                    <li>UX / UI Design</li>
+                    <li>METAVERSE & AI</li>
+                    <li>Git & Github</li>
+                    <li>Wordpress Basics & Digital Marketing</li>
+                    <li>Generative Artificial Intelligence</li>
+                    <li>Wordpress - Προσβασιμότητα</li>
+                    <li>Digital Content & S.E.O.</li>
+                    <li>A.I for Video Games</li>
+                    <li>Raspberry Basic Configuration</li>
+                </ul>
+                <h3>ECDL Advanced</h3>
+                <ul>Word, Excel, Powerpoint, Access, Outlook</ul>
+                <h3>Certified Secretary</h3>
+                <ul class="skills-list">
+                    <li><span class="tick">➤</span>Οργάνωση Γραφείου</li>
+                    <li><span class="tick"></span>Μηχανογραφημένη Λογιστική</li>
+                </ul>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
